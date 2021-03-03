@@ -22,7 +22,7 @@ void get_sum (Args args)
 
 void print_hello (Args args)
 {
-    std::cout << Cli::info << "print_hellp : hello" << std::endl;
+    std::cout << Cli::info << "print_hello : hello" << std::endl;
 }
 
 int main(void)
@@ -33,7 +33,7 @@ int main(void)
 
     my_cli.add_command("print", print);
     my_cli.add_command("get_sum", get_sum);
-    my_cli.add_command("print_hellp", print_hello);
+    my_cli.add_command("print_hello", print_hello);
 
     while (1)
     {
