@@ -1,3 +1,0 @@
-C:/Users/arkt/Documents/c++/CMakeFiles/out.dir
-C:/Users/arkt/Documents/c++/CMakeFiles/edit_cache.dir
-C:/Users/arkt/Documents/c++/CMakeFiles/rebuild_cache.dir
