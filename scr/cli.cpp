@@ -75,6 +75,10 @@ int Cli::get() const
     fgets(input, 128, stdin);
     rewind(stdin);
 
+    while (input[0] == ' ')
+    {
+        input = input + 1;
+    }
 
     char command[128];
     for (int i = 0; i < 128; i ++)      // get command -<
@@ -106,6 +110,10 @@ int Cli::get() const
             args.add_arg(input);
             input = &input[i + 1];
             i = 0;
+            while (input[0] == ' ')
+            {
+                input = input + 1;
+            }
         }
         if (input[i] == '\0')
             break;
