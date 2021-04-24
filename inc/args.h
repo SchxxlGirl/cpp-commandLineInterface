@@ -19,7 +19,7 @@ public :
 
     Args(const Args& other);
 
-    ~Args();
+    virtual ~Args();
 
     
     void add_arg(const char *arg);

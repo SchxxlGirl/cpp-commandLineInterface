@@ -33,7 +33,7 @@ public :
 
     Cli() : _prompt(nullptr), _commands(nullptr), _func(nullptr), _commands_count(0) {};
 
-    ~Cli();
+    virtual ~Cli();
 
 
     int set_prompt(const char *prompt);
