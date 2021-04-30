@@ -1,2 +1,2 @@
 # cpp-commandLineInterface
-command line interface written in cpp
+just a command line interface written in cpp
