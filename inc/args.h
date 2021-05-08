@@ -9,24 +9,24 @@ private :
 
     char **_args;
 
-    int _args_count;
+    int _argsCount;
 
 
 public :
 
 
-    Args() : _args(nullptr), _args_count(0) {};
+    Args() : _args(nullptr), _argsCount(0) {};
 
     Args(const Args& other);
 
     virtual ~Args();
 
     
-    void add_arg(const char *arg);
+    void addArg(const char *arg);
 
-    const char* get_arg (int i) const;
+    const char* getArg (int i) const;
 
-    int get_count() const;
+    int getCount() const;
 
 
 };

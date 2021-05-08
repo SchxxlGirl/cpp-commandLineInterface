@@ -5,38 +5,38 @@
 
 void print (Args args)
 {
-    for (int i = 0; i < args.get_count(); i ++)
-        std::cout << Cli::info << "print : " << i << " - " << args.get_arg(i) << std::endl;
+    for (int i = 0; i < args.getCount(); i ++)
+        std::cout << Cli::info << "print : " << i << " - " << args.getArg(i) << std::endl;
 }
 
-void get_sum (Args args)
+void getSum (Args args)
 {
     int sum = 0;
 
-    for (int i = 0; i < args.get_count(); i ++)
-        sum += atoi(args.get_arg(i));
+    for (int i = 0; i < args.getCount(); i ++)
+        sum += atoi(args.getArg(i));
 
-    std::cout << Cli::info << "get_sum : sum = " << sum << std::endl;
+    std::cout << Cli::info << "getSum : sum = " << sum << std::endl;
 }
 
-void print_hello (Args args)
+void printHello (Args args)
 {
-    std::cout << Cli::info << "print_hello : hello" << std::endl;
+    std::cout << Cli::info << "printHello : hello" << std::endl;
 }
 
 int main(void)
 {
-    Cli my_cli;
+    Cli myCli;
 
-    my_cli.set_prompt("> ");
+    myCli.setPrompt("> ");
 
-    my_cli.add_command("print", print);
-    my_cli.add_command("get_sum", get_sum);
-    my_cli.add_command("print_hello", print_hello);
+    myCli.addCommand("print", print);
+    myCli.addCommand("getSum", getSum);
+    myCli.addCommand("printHello", printHello);
 
     while (1)
     {
-        my_cli.get();
+        myCli.get();
     }
 
     return 0;

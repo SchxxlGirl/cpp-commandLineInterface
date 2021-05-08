@@ -13,7 +13,7 @@ typedef void (*FuncPtr)(Args);
 
 Cli::~Cli()
 {
-    for (int i = 0; i < _commands_count; i ++)
+    for (int i = 0; i < _commandsCount; i ++)
         delete [] _commands[i];
     if (_commands != nullptr)
         delete [] _commands;
@@ -23,7 +23,7 @@ Cli::~Cli()
         delete [] _func;
 }
 
-int Cli::set_prompt(const char *prompt)
+int Cli::setPrompt(const char *prompt)
 {
     if (_prompt != nullptr)
         delete [] _prompt;
@@ -34,27 +34,27 @@ int Cli::set_prompt(const char *prompt)
     return 0;
 }
 
-const char* Cli::get_prompt() const
+const char* Cli::getPrompt() const
 {
     return _prompt;
 }
 
-int Cli::add_command(const char *command, void (*func)(Args))
+int Cli::addCommand(const char *command, void (*func)(Args))
 {
-    char **temp_command = new char* [_commands_count + 1];
-    void (**temp_func)(Args) = new FuncPtr[_commands_count + 1];
+    char **temp_command = new char* [_commandsCount + 1];
+    void (**temp_func)(Args) = new FuncPtr[_commandsCount + 1];
 
-    for (int i = 0; i < _commands_count; i ++)
+    for (int i = 0; i < _commandsCount; i ++)
     {
         temp_command[i] = _commands[i];
         temp_func[i] = _func[i];
     }
 
-    temp_command[_commands_count] = new char[strlen(command) + 1];
-    strcpy(temp_command[_commands_count], command);
-    temp_func[_commands_count] = func;
+    temp_command[_commandsCount] = new char[strlen(command) + 1];
+    strcpy(temp_command[_commandsCount], command);
+    temp_func[_commandsCount] = func;
 
-    _commands_count ++;
+    _commandsCount ++;
 
     delete [] _commands;
     delete [] _func;
@@ -99,7 +99,7 @@ int Cli::get() const
         if (input[i] == '\n')
         {
             input[i] = '\0';
-            args.add_arg(input);
+            args.addArg(input);
             input = &input[i + 1];
             i = 0;
             break;
@@ -107,7 +107,7 @@ int Cli::get() const
         if (input[i] == ' ')
         {
             input[i] = '\0';
-            args.add_arg(input);
+            args.addArg(input);
             input = &input[i + 1];
             i = 0;
             while (input[0] == ' ')
@@ -121,7 +121,7 @@ int Cli::get() const
 
 
     bool is_found = false;
-    for (int i = 0; i < _commands_count; i ++)
+    for (int i = 0; i < _commandsCount; i ++)
     {
         if (strcmp(command, _commands[i]) == 0)
         {

@@ -6,7 +6,7 @@
 
 Args::~Args()
 {
-    for(int i = 0; i < _args_count; i ++)
+    for(int i = 0; i < _argsCount; i ++)
         delete [] _args[i];
     if (_args != nullptr)
         delete [] _args;
@@ -14,41 +14,41 @@ Args::~Args()
 
 Args::Args(const Args& other)
 {
-    this->_args_count = other._args_count;
+    this->_argsCount = other.getCount();
     
-    this->_args = new char*[_args_count];
+    this->_args = new char*[this->_argsCount];
 
-    for (int i = 0; i < _args_count; i ++)
+    for (int i = 0; i < this->_argsCount; i ++)
     {
-        _args[i] = new char[strlen(other._args[i] + 1)];
-        strcpy(_args[i], other._args[i]);
+        _args[i] = new char[strlen(other.getArg(i)) + 1];
+        strcpy(this->_args[i], other.getArg(i));
     }
 }
 
-void Args::add_arg(const char *arg)
+void Args::addArg(const char *arg)
 {
-    char **temp = new char* [_args_count + 1];
+    char **temp = new char* [_argsCount + 1];
 
-    for(int i = 0; i < _args_count; i ++)
+    for(int i = 0; i < _argsCount; i ++)
         temp[i] = _args[i];
 
-    temp[_args_count] = new char[strlen(arg) + 1];
-    strcpy(temp[_args_count], arg);
+    temp[_argsCount] = new char[strlen(arg) + 1];
+    strcpy(temp[_argsCount], arg);
 
-    _args_count ++;
+    _argsCount ++;
 
     delete [] _args;
     _args = temp;
 }
 
-const char* Args::get_arg(int i) const
+const char* Args::getArg(int i) const
 {
-    if (i >= 0 && i < _args_count)
+    if (i >= 0 && i < _argsCount)
        return _args[i];
     return nullptr;
 }
 
-int Args::get_count() const
+int Args::getCount() const
 {
-    return _args_count;
+    return _argsCount;
 }

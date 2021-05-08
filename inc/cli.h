@@ -15,7 +15,7 @@ private :
 
     void (**_func)(Args);
 
-    int _commands_count;
+    int _commandsCount;
 
 
 public :
@@ -31,16 +31,16 @@ public :
 public :
 
 
-    Cli() : _prompt(nullptr), _commands(nullptr), _func(nullptr), _commands_count(0) {};
+    Cli() : _prompt(nullptr), _commands(nullptr), _func(nullptr), _commandsCount(0) {};
 
     virtual ~Cli();
 
 
-    int set_prompt(const char *prompt);
+    int setPrompt(const char *prompt);
 
-    const char* get_prompt() const;
+    const char* getPrompt() const;
 
-    int add_command(const char *command, void (*func) (Args));
+    int addCommand(const char *command, void (*func) (Args));
 
     int get() const;
   
