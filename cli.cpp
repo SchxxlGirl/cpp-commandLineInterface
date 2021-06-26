@@ -1,9 +1,7 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include<iostream>
 #include<cstring> 
 
-#include "../inc/cli.h"
+#include "cli.h"
 
 const char *Cli::erro = "[ERRO] ";
 const char *Cli::warn = "[WARN] ";
